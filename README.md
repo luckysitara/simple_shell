@@ -202,12 +202,3 @@ hsh             own_cd.c       own_help.c   shell.h              split_line.c
 main.c          own_env.c      read_line.c  shell_interactive.c
 ```
 
-<p>&nbsp</p>
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://www.linkedin.com/in/santiagobedoa/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/santiago-bedoya-arias-852a15233/" height="30" width="40" /></a>
-<a href="https://twitter.com/santiagobedoa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="https://twitter.com/santiagobedoa" height="30" width="40" /></a>
-<a href="https://medium.com/@santiagobedoa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="https://medium.com/@santiagobedoa" height="30" width="40" /></a>
-</p>
-<p></p>
