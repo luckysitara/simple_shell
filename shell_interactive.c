@@ -1,28 +1,35 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
- * shell_interactive - UNIX command line interpreter
+ * interactive - UNIX command line interpreter
  *
  * Return: void
  */
-void shell_interactive(void)
+void interactive(void)
 {
-	char *line;
-	char **args;
-	int status = -1;
+	char *readl;
+	char **sptl;
+	int state = -1;
 
 	do {
-		printf("simple_prompt$ "); /* print prompt symbol */
-		line = read_line(); /* read line from stdin */
-		args = split_line(line); /* tokenize line */
-		status = execute_args(args);
-		/* avoid memory leaks */
-		free(line);
-		free(args);
-		/* exit with status */
-		if (status >= 0)
+		/* print Cisfun prompt with $ sign */
+		printf("Cisfun$ ");
+
+		/* reading from standard input */
+		readl = readlf();
+
+		/* spliting line by using tokens */
+		sptl = sptlf(readl);
+		state = get_execute(sptl);
+
+		/* avoiding leaking and free allocatted memory */
+		free(readl);
+		free(sptl);
+
+		/* exiting state */
+		if (state >= 0)
 		{
-			exit(status);
+			exit(state);
 		}
-	} while (status == -1);
+	} while (state == -1);
 }

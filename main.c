@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
  * main - function that checks if our shell is called
@@ -7,14 +7,16 @@
  */
 int main(void)
 {
-	/* determines if file descriptor is associated with a terminal */
+	/* determining if the file descriptor is associated with any terminal */
 	if (isatty(STDIN_FILENO) == 1)
 	{
-		shell_interactive();
+		interactive();
 	}
+	/*checking if it is interactive or not */
+
 	else
 	{
-		shell_no_interactive();
+		non_interactive();
 	}
 	return (0);
 }
