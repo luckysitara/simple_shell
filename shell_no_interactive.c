@@ -1,27 +1,32 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
- * shell_no_interactive - unix command line interpreter
+ * non_interactive - interpreter for unix or linux commands
  *
- * Return: void
+ * Return: void always
  */
-void shell_no_interactive(void)
+void non_interactive(void)
 {
-	char *line;
-	char **args;
-	int status = -1;
+	char *readl;
+	char **sptl;
+	int state = -1;
 
 	do {
-		line = read_stream();
-		args = split_line(line); /* tokenize line */
-		status = execute_args(args);
-		/* avoid memory leaks */
-		free(line);
-		free(args);
-		/* exit with status */
-		if (status >= 0)
+		/* reading from standard input */
+		readl = get_stream();
+
+		/* spliting line using tokens */
+		sptl = sptlf(readl);
+		state = get_execute(sptl);
+
+		/* avoiding leaking memory and freeing  memory */
+		free(readl);
+		free(sptl);
+
+		/* exiting  state */
+		if (state >= 0)
 		{
-			exit(status);
+			exit(state);
 		}
-	} while (status == -1);
+	} while (state == -1);
 }

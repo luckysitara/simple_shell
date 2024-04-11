@@ -1,37 +1,41 @@
-#include "shell.h"
+#include "simple.h"
+#include <stdlib.h>
+
 
 /**
- * new_process - create a new process
+ * npid - create a new process
+ * for the child and the parent
  * @args: array of strings that contains the command and its flags
  *
  * Return: 1 if success, 0 otherwise.
  */
-int new_process(char **args)
+int npid(char **args)
 {
 	pid_t pid;
-	int status;
+	int state;
 
+	/* forking the parent id */
 	pid = fork();
 	if (pid ==  0)
 	{
-		/* child process */
+	/*checking for the child process */
 		if (execvp(args[0], args) == -1)
 		{
-			perror("error in new_process: child process");
+			perror("error in npid: child process");
 		}
 		exit(EXIT_FAILURE);
 	}
 	else if (pid < 0)
 	{
-		/* error forking */
-		perror("error in new_process: forking");
+		/* checking for error during forking */
+		perror("error in npid: forking");
 	}
 	else
 	{
-		/* parent process */
+	/*checking for the parent process */
 		do {
-			waitpid(pid, &status, WUNTRACED);
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+			waitpid(pid, &state, WUNTRACED);
+		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
 	}
 	return (-1);
 }
