@@ -14,7 +14,7 @@ int own_help(char **args)
 		"help",
 		"exit"
 	};
-	long unsigned int i = 0;
+	unsigned long int i = 0;
 	(void)(**args);
 
 	printf("\n---help simple_shell---\n");
@@ -27,3 +27,4 @@ int own_help(char **args)
 	printf("Use the man command for information on other programs.\n\n");
 	return (-1);
 }
+
